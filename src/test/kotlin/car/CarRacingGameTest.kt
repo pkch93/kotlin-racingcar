@@ -14,7 +14,7 @@ class CarRacingGameTest : StringSpec(
                 )
             )
 
-            val actual = sut.start()
+            val actual = sut.start(listOf(4, 4, 3))
 
             actual shouldBe listOf(
                 MovedCar(1),
