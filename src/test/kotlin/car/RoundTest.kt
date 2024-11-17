@@ -15,10 +15,12 @@ class RoundTest : StringSpec(
             )
 
             val actual = sut.start(
-                listOf(
-                    MovePossibility(4),
-                    MovePossibility(4),
-                    MovePossibility(3),
+                MovePossibilities(
+                    listOf(
+                        MovePossibility(4),
+                        MovePossibility(4),
+                        MovePossibility(3),
+                    )
                 )
             )
 

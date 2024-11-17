@@ -1,14 +1,14 @@
 package car
 
 class Car(
-    private val position: Int = 0,
+    private var position: Int = 0,
 ) {
-    fun move(movePossibility: MovePossibility): MovedCar =
+    fun move(movePossibility: MovePossibility): MovedCar {
         if (movePossibility.move) {
-            MovedCar(position + 1)
-        } else {
-            MovedCar(position)
+            position += 1
         }
+        return MovedCar(position)
+    }
 }
 
 class MovePossibility(

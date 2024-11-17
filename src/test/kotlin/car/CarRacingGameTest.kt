@@ -14,12 +14,37 @@ class CarRacingGameTest : StringSpec(
                 )
             )
 
-            val actual = sut.play()
+            val actual = sut.play(
+                totalRound = 2,
+                movePossibilities = listOf(
+                    MovePossibilities(
+                        listOf(
+                            MovePossibility(4),
+                            MovePossibility(3),
+                            MovePossibility(3),
+                        )
+                    ),
+                    MovePossibilities(
+                        listOf(
+                            MovePossibility(4),
+                            MovePossibility(4),
+                            MovePossibility(3),
+                        )
+                    ),
+                )
+            )
 
             actual shouldBe listOf(
-                MovedCar(2),
-                MovedCar(1),
-                MovedCar(0),
+                listOf(
+                    MovedCar(1),
+                    MovedCar(0),
+                    MovedCar(0),
+                ),
+                listOf(
+                    MovedCar(2),
+                    MovedCar(1),
+                    MovedCar(0),
+                )
             )
         }
     }
