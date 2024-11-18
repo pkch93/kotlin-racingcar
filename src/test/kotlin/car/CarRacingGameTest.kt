@@ -7,14 +7,11 @@ class CarRacingGameTest : StringSpec(
     {
         "자동차 경주 게임을 실행하여 최종 결과를 도출한다." {
             val sut = CarRacingGame(
-                listOf(
+                cars = listOf(
                     Car(),
                     Car(),
                     Car(),
-                )
-            )
-
-            val actual = sut.play(
+                ),
                 totalRound = 2,
                 movePossibilities = listOf(
                     MovePossibilities(
@@ -31,10 +28,12 @@ class CarRacingGameTest : StringSpec(
                             canNotMovePossibilityFixtures(),
                         )
                     ),
-                )
+                ),
             )
 
-            actual shouldBe RacingGameResult(
+            val actual = sut.play()
+
+            actual shouldBe CarRacingGameResult(
                 listOf(
                     RoundResult(
                         listOf(
