@@ -19,32 +19,38 @@ class CarRacingGameTest : StringSpec(
                 movePossibilities = listOf(
                     MovePossibilities(
                         listOf(
-                            MovePossibility(4),
-                            MovePossibility(3),
-                            MovePossibility(3),
+                            canMovePossibilityFixtures(),
+                            canNotMovePossibilityFixtures(),
+                            canNotMovePossibilityFixtures(),
                         )
                     ),
                     MovePossibilities(
                         listOf(
-                            MovePossibility(4),
-                            MovePossibility(4),
-                            MovePossibility(3),
+                            canMovePossibilityFixtures(),
+                            canMovePossibilityFixtures(),
+                            canNotMovePossibilityFixtures(),
                         )
                     ),
                 )
             )
 
-            actual shouldBe listOf(
+            actual shouldBe RacingGameResult(
                 listOf(
-                    MovedCar(1),
-                    MovedCar(0),
-                    MovedCar(0),
+                    RoundResult(
+                        listOf(
+                            MovedCar(1),
+                            MovedCar(0),
+                            MovedCar(0),
+                        )
+                    ),
+                    RoundResult(
+                        listOf(
+                            MovedCar(2),
+                            MovedCar(1),
+                            MovedCar(0),
+                        )
+                    ),
                 ),
-                listOf(
-                    MovedCar(2),
-                    MovedCar(1),
-                    MovedCar(0),
-                )
             )
         }
     }

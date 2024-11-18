@@ -6,9 +6,14 @@ class CarRacingGame(
     fun play(
         totalRound: Int,
         movePossibilities: List<MovePossibilities>,
-    ): List<List<MovedCar>> =
+    ): RacingGameResult =
         (0..< totalRound)
             .map {
                 Round(cars).start(movePossibilities[it])
             }
+            .let { RacingGameResult(it) }
 }
+
+data class RacingGameResult(
+    val value: List<RoundResult>,
+)

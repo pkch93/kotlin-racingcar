@@ -17,17 +17,19 @@ class RoundTest : StringSpec(
             val actual = sut.start(
                 MovePossibilities(
                     listOf(
-                        MovePossibility(4),
-                        MovePossibility(4),
-                        MovePossibility(3),
+                        canMovePossibilityFixtures(),
+                        canMovePossibilityFixtures(),
+                        canNotMovePossibilityFixtures()
                     )
                 )
             )
 
-            actual shouldBe listOf(
-                MovedCar(1),
-                MovedCar(1),
-                MovedCar(0),
+            actual shouldBe RoundResult(
+                listOf(
+                    MovedCar(1),
+                    MovedCar(1),
+                    MovedCar(0),
+                ),
             )
         }
     }
