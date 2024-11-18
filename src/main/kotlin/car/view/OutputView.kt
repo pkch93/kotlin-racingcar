@@ -19,6 +19,5 @@ class OutputView {
         val positionMark = (1..movedCar.position)
             .joinToString("") { "-" }
         println(positionMark)
-        println()
     }
 }
