@@ -4,14 +4,17 @@ class Round(
     private val cars: List<Car>
 ) {
     fun start(movePossibilities: MovePossibilities): RoundResult =
-        cars.mapIndexed { index, car -> car.move(movePossibilities[index]) }
+        cars.mapIndexedNotNull { index, car ->
+            movePossibilities[index]
+                ?.let { car.move(it) }
+        }
             .let { RoundResult(it) }
 }
 
 class MovePossibilities(
     private val movePossibilities: List<MovePossibility>,
 ) {
-    operator fun get(index: Int): MovePossibility = movePossibilities[index]
+    operator fun get(index: Int): MovePossibility? = movePossibilities.getOrNull(index)
 }
 
 data class RoundResult(
