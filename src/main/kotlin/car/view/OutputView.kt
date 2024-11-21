@@ -8,6 +8,7 @@ class OutputView {
     fun printResult(result: CarRacingGameResult) {
         println("실행 결과")
         result.value.forEach { printRoundResult(it) }
+        printWinners(result.winners)
     }
 
     private fun printRoundResult(roundResult: RoundResult) {
@@ -18,6 +19,11 @@ class OutputView {
     private fun movedCarPosition(movedCar: MovedCar) {
         val positionMark = (1..movedCar.position)
             .joinToString("") { "-" }
-        println(positionMark)
+        println("${movedCar.name} : $positionMark")
+    }
+
+    private fun printWinners(winners: List<String>) {
+        val winners = winners.joinToString(", ")
+        println("${winners}가 최종 우승했습니다.")
     }
 }
