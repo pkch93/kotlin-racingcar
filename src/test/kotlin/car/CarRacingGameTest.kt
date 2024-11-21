@@ -69,6 +69,8 @@ class CarRacingGameTest : StringSpec(
                     ),
                 ),
             )
+
+            actual.winners shouldBe listOf("car1")
         }
     }
 )

@@ -15,4 +15,6 @@ class CarRacingGame(
 
 data class CarRacingGameResult(
     val value: List<RoundResult>,
-)
+) {
+    val winners: List<String> = listOf()
+}
