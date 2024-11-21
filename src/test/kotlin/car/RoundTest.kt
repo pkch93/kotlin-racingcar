@@ -8,9 +8,9 @@ class RoundTest : StringSpec(
         "자동차 경주 게임의 최종 이동 결과를 도출한다," {
             val sut = Round(
                 listOf(
-                    Car(),
-                    Car(),
-                    Car(),
+                    Car(name = "car1"),
+                    Car(name = "car2"),
+                    Car(name = "car3"),
                 )
             )
 

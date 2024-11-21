@@ -8,9 +8,9 @@ class CarRacingGameTest : StringSpec(
         "자동차 경주 게임을 실행하여 최종 결과를 도출한다." {
             val sut = CarRacingGame(
                 cars = listOf(
-                    Car(),
-                    Car(),
-                    Car(),
+                    Car(name = "car1"),
+                    Car(name = "car2"),
+                    Car(name = "car3"),
                 ),
                 totalRound = 2,
                 movePossibilities = listOf(
