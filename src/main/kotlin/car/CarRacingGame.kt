@@ -16,5 +16,14 @@ class CarRacingGame(
 data class CarRacingGameResult(
     val value: List<RoundResult>,
 ) {
-    val winners: List<String> = listOf()
+    val winners: List<String>
+
+    init {
+        val lastRound = value.last()
+        val winnerPosition = lastRound.value.maxOf { it.position }
+
+        winners = lastRound.value
+            .filter { it.position == winnerPosition }
+            .map { it.name }
+    }
 }
