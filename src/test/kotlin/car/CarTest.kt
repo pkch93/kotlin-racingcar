@@ -17,13 +17,19 @@ class CarTest : StringSpec(
         "자동차가 전진한다." {
             val sut = Car(name = "pkch")
             val actual = sut.move(MovePossibility(4))
-            actual shouldBe MovedCar(1)
+            actual shouldBe MovedCar(
+                position = 1,
+                name = "pkch",
+            )
         }
 
         "자동차가 정지한다." {
             val sut = Car(name = "pkch")
             val actual = sut.move(MovePossibility(3))
-            actual shouldBe MovedCar(0)
+            actual shouldBe MovedCar(
+                position = 0,
+                name = "pkch",
+            )
         }
     }
 )

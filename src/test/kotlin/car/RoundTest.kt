@@ -26,9 +26,18 @@ class RoundTest : StringSpec(
 
             actual shouldBe RoundResult(
                 listOf(
-                    MovedCar(1),
-                    MovedCar(1),
-                    MovedCar(0),
+                    MovedCar(
+                        position = 1,
+                        name = "car1",
+                    ),
+                    MovedCar(
+                        position = 1,
+                        name = "car2",
+                    ),
+                    MovedCar(
+                        position = 0,
+                        name = "car3",
+                    ),
                 ),
             )
         }

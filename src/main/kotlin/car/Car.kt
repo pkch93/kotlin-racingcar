@@ -15,7 +15,10 @@ class Car(
         if (movePossibility.move) {
             position += 1
         }
-        return MovedCar(position)
+        return MovedCar(
+            position = position,
+            name = name
+        )
     }
 }
 
@@ -27,4 +30,5 @@ class MovePossibility(
 
 data class MovedCar(
     val position: Int,
+    val name: String,
 )

@@ -37,16 +37,34 @@ class CarRacingGameTest : StringSpec(
                 listOf(
                     RoundResult(
                         listOf(
-                            MovedCar(1),
-                            MovedCar(0),
-                            MovedCar(0),
+                            MovedCar(
+                                position = 1,
+                                name = "car1",
+                            ),
+                            MovedCar(
+                                position = 0,
+                                name = "car2",
+                            ),
+                            MovedCar(
+                                position = 0,
+                                name = "car3",
+                            ),
                         )
                     ),
                     RoundResult(
                         listOf(
-                            MovedCar(2),
-                            MovedCar(1),
-                            MovedCar(0),
+                            MovedCar(
+                                position = 2,
+                                name = "car1",
+                            ),
+                            MovedCar(
+                                position = 1,
+                                name = "car2",
+                            ),
+                            MovedCar(
+                                position = 0,
+                                name = "car3",
+                            ),
                         )
                     ),
                 ),
