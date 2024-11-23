@@ -8,9 +8,9 @@ class CarRacingGameTest : StringSpec(
         "자동차 경주 게임을 실행하여 최종 결과를 도출한다." {
             val sut = CarRacingGame(
                 cars = listOf(
-                    Car(),
-                    Car(),
-                    Car(),
+                    Car(name = "car1"),
+                    Car(name = "car2"),
+                    Car(name = "car3"),
                 ),
                 totalRound = 2,
                 movePossibilities = listOf(
@@ -37,20 +37,40 @@ class CarRacingGameTest : StringSpec(
                 listOf(
                     RoundResult(
                         listOf(
-                            MovedCar(1),
-                            MovedCar(0),
-                            MovedCar(0),
+                            MovedCar(
+                                position = 1,
+                                name = "car1",
+                            ),
+                            MovedCar(
+                                position = 0,
+                                name = "car2",
+                            ),
+                            MovedCar(
+                                position = 0,
+                                name = "car3",
+                            ),
                         )
                     ),
                     RoundResult(
                         listOf(
-                            MovedCar(2),
-                            MovedCar(1),
-                            MovedCar(0),
+                            MovedCar(
+                                position = 2,
+                                name = "car1",
+                            ),
+                            MovedCar(
+                                position = 1,
+                                name = "car2",
+                            ),
+                            MovedCar(
+                                position = 0,
+                                name = "car3",
+                            ),
                         )
                     ),
                 ),
             )
+
+            actual.winners shouldBe listOf("car1")
         }
     }
 )

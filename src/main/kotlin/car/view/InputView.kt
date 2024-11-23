@@ -7,25 +7,19 @@ import car.MovePossibility
 
 class InputView {
     fun input(): CarRacingGame {
-        val cars = inputCarAmount()
+        val cars = inputCars()
         val totalRound = inputTotalRound()
         val movePossibilities = makeMovePossibilities(cars.size, totalRound)
         return CarRacingGame(cars, totalRound, movePossibilities)
     }
 
-    private fun inputCarAmount(): List<Car> {
-        println("자동차 대수는 몇 대인가요?")
-        val maybeCarAmount = readlnOrNull()
-        requireNotNull(maybeCarAmount) { "자동차 대수 입력은 필수입니다." }
-        return try {
-            val carAmount = maybeCarAmount.toInt()
-            require(carAmount > 0)
-            (1..carAmount).map { Car() }
-        } catch (e: NumberFormatException) {
-            throw IllegalArgumentException("자동차 대수는 숫자여야 합니다.")
-        } catch (e: IllegalArgumentException) {
-            throw IllegalArgumentException("자동차 대수는 0보다 커야 합니다.")
-        }
+    private fun inputCars(): List<Car> {
+        println("경주할 자동차 이름을 입력하세요(이름은 쉼표(,) 기준으로 구분)")
+        val maybeCarNames = readlnOrNull()
+        requireNotNull(maybeCarNames) { "경주할 자동차 입력은 필수입니다." }
+
+        val carNames = maybeCarNames.split(",")
+        return carNames.map { Car(name = it) }
     }
 
     private fun inputTotalRound(): Int {
